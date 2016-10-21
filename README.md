@@ -1,4 +1,3 @@
-
 #### Date: 21-10-2016
 #### Description: This document aims to define the Bluemix Tone Analyzer API coding 
 
@@ -16,7 +15,7 @@ Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.t
 
 #### Code Flows as follows:
    * To insert or get data from DB code flows.. index.php -> Controller -> Action -> MySql.
-   * To view the data code flows.. index.php -> view.
+   * To view the data code flows.. index.php -> Controller -> View.
    
  
 #### Step 1:
@@ -190,3 +189,18 @@ if($_REQUEST['module']=='toneAnalyzer'){
     }
     
 ``` 
+
+#### Step 13:
+   To view the Child data based on the master id, function **getChildDataFromMySQL($post_data)** will be called from controller.
+   Function **getAllChildDataFromMySQL($post_data)** will get the reocrds based on the master id using MySql query. Function **showDetailListView($bluemix_list_vo)** will be called in view. 
+   
+**_Code:_**
+
+```
+public function getChildDataFromMySQL($post_data){
+        $bluemix_action = BluemixToneAnalyzerAction::getInstance();            
+        $bluemix_list_vo = $bluemix_action->getAllChildDataFromMySQL($post_data);
+		$bluemix_view = BluemixToneAnalyzerView::getInstance();            
+    	$bluemix_view->showDetailListView($bluemix_list_vo);
+	}
+```
