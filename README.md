@@ -16,8 +16,8 @@ Modules | BluemixToneAnalyzer | Tone Analyzer Controller, Tone Analyzer Action, 
 Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.tpl,detailList.tpl|
 
 #### Code Flows as follows:
-   > To insert or get data from DB index.php -> Controller -> Action -> MySql
-   > To view the data index.php -> view
+   * To insert or get data from DB index.php -> Controller -> Action -> MySql.
+   * To view the data index.php -> view.
    
 
 #### Step 1:
