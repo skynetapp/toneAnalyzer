@@ -8,6 +8,11 @@ Lib -> Smarty, common functions.<br>
 Modules -> BluemixToneAnalyzer -> Controller, Action, DB MySql, View, DB Mongo.<br>
 Views -> BluemixToneAnalyzer -> Header.tpl,Footer.tpl, master.tpl,detailList.tpl.<br>
 
+Tables in DB:<br>
+BlueMixAlmEntityExtractReq <br>
+master_tone_analyzer_request <br>
+child_tone_analyzer_request <br>
+
 
 In order to insert or get data from DB flow is index.php -> Controller -> Action -> MySql.<br>
 In order to view the output flow is index.php -> Controller -> View.<br>
@@ -23,3 +28,4 @@ Steps:<br>
 2. Getting multiple reocrds data from Request table DB and calling CURL of Tone Analyzer API.<br>
 3. On receiving JSON response from API, inserting JSON response in Mongodb.<br>
 4. Store the response data in Master and child tables accordingly.<br>
+5. Updating the Request table records status and Request date.<br>
