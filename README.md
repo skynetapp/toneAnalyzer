@@ -1,7 +1,6 @@
-# toneAnalyzer
 
 #### Date: 21-10-2016
-#### Description: This document aims to define the Tone Analyzer coding 
+#### Description: This document aims to define the Bluemix Tone Analyzer API coding 
 
 
 #### The Folder Structure is as follows:
@@ -16,10 +15,10 @@ Modules | BluemixToneAnalyzer | Tone Analyzer Controller, Tone Analyzer Action, 
 Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.tpl,detailList.tpl|
 
 #### Code Flows as follows:
-   * To insert or get data from DB index.php -> Controller -> Action -> MySql.
-   * To view the data index.php -> view.
+   * To insert or get data from DB code flows.. index.php -> Controller -> Action -> MySql.
+   * To view the data code flows.. index.php -> view.
    
-
+ 
 #### Step 1:
   Add the created Url, Username and Password in the config.php under bluemix2.0 folder.
 	
@@ -41,7 +40,7 @@ Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.t
 
 ```
 <?php
-if($_REQUEST['module']=='toneAnalyzer'){    // when app loaded with  peraters this condition is executed
+if($_REQUEST['module']=='toneAnalyzer'){  
     switch ($_REQUEST['action']){
 	    case 'GetList':
         {
@@ -174,6 +173,20 @@ if($_REQUEST['module']=='toneAnalyzer'){    // when app loaded with  peraters th
    On inserting the JSON response into master and child tables, the status and Request date will be updated for that record in the Request table by function **updateToneAnalyzerTextData($id)** in controller.
 
 
-
-#### Step 10:
+#### Step 11:
+   To get the Master list function **getALLMasterDataFromMySQL** will be called from controller.
    
+#### Step 12:
+   To view the Master list function **showallMasterListView()** will be called from controller to View.
+   
+**_Code:_**
+
+```
+   function showallMasterListView($data_arr){
+        $smarty = new Smarty();
+        $smarty->assign('base_path',$GLOBALS['base_path']);
+		$smarty->assign('cursor',$data_arr);
+	    $smarty->display(''.$GLOBALS['root_path'].'/Views/BluemixToneAnalyzer/allmasterList.tpl');
+    }
+    
+``` 
