@@ -19,14 +19,14 @@ Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.t
    
  
 #### Step 1:
-  Add the created Url, Username and Password in the config.php under bluemix2.0 folder.
+  Add the created Url, Username and Password in the config.php under bluemix2.0 folder.we can get the Tone Analyzer API Username and password by logging into IBM Bluemix. 
 	
 **_Code:_**
 	
 ```
 	
-	$GLOBALS['bluemix_toneanalyzer_username']='0d29fcc3-35c3-4ca4-ae50-9624b6568262';
-	$GLOBALS['bluemix_toneanalyzer_password']='DFLJXTdtPqAF';
+	$GLOBALS['bluemix_toneanalyzer_username']='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+	$GLOBALS['bluemix_toneanalyzer_password']='xxxxxxxxxxxx';
 	$GLOBALS['bluemix_toneanalyzer_url']='https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2016-05-19';
 	
 ```
