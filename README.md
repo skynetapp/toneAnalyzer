@@ -16,8 +16,9 @@ Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.t
 #### Architecture
 
 1. Read data from MySQL Table where ToneAnalyzerStatus='' and ToneAnalyzer=0 (Table name - BlueMixAlmEntityExtractReq)
-2. Invoke Watson by calling Entity API and get response from API.
-4. The response is processed and updated in Parent Table (master_tone_analyzer_request) and the corresponsing children and stored in child table name (children_tone_analyzer_request). 
+2. Invoke Watson by calling Tone Analyzer API which calls the curl and gets response from API for multiple records.
+3. The response is processed and updated in Parent Table (master_tone_analyzer_request) and the corresponding children are stored in child table name (children_tone_analyzer_request). 
+4. Updating the processed records status after getting the response. 
 5. The raw response from Watson is also stored in MongoDB (lytepole) as raw JSON file.
 
 #### Code Flows as follows:
