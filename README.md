@@ -118,8 +118,9 @@ children_tone_analyzer_request | Stores the child records based on master id | c
  
 #### Mongo Database details
  
-Database Name: lytepole
-Description: Mongo stores the JSON response given by the Alchemy API for all the records.
+- Database Name: lytepole
+- Table or collection name: BlueMixPersonalityExtract
+- Description: Mongo stores the JSON response given by the Alchemy API for all the records.
 
 - To start the mongoDB, open putty.
 - To start the MongoDB service type command - **mongo**.
