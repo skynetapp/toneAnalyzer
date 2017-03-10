@@ -13,6 +13,13 @@ Lib | Smarty,Common functions | |
 Modules | BluemixToneAnalyzer | Tone Analyzer Controller, Tone Analyzer Action, Tone Analyzer MySql, Tone Analyzer View, Tone Analyzer API Call, Tone Analyzer DB Mongo|
 Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.tpl,detailList.tpl|
 
+#### Architecture
+
+1. Read data from MySQL Table where ToneAnalyzerStatus='' and ToneAnalyzer=0 (Table name - BlueMixAlmEntityExtractReq)
+2. Invoke Watson by calling Entity API and get response from API.
+4. The response is processed and updated in Parent Table (master_tone_analyzer_request) and the corresponsing children and stored in child table name (children_tone_analyzer_request). 
+5. The raw response from Watson is also stored in MongoDB (lytepole) as raw JSON file.
+
 #### Code Flows as follows:
    * To insert or get data from DB code flows.. index.php -> Controller -> Action -> MySql.
    * To view the data code flows.. index.php -> Controller -> View.
@@ -103,7 +110,7 @@ Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.t
  
  Tables | Description | Fields 
 ------------ | ------------- | ------------
-BlueMixAlmEntityExtractReq | Request table to get records where EmotionExtractionStatus='' and EmotionExtraction=0 | |
+BlueMixAlmEntityExtractReq | Request table to get records where ToneAnalyzerStatus='' and ToneAnalyzer=0 | |
 master_tone_analyzer_request | Stores the extracted data based on the request id | alm_id, alm_request_date, alm_external_id, alm_emotion_response_text |
 children_tone_analyzer_request | Stores the child records based on master id | children_id, master_request_id, tones_id, tones_tone_name, category_id, children_date_created |
  
@@ -111,3 +118,10 @@ children_tone_analyzer_request | Stores the child records based on master id | c
 #### Mongo Database details
  
 Database Name: lytepole
+Description: Mongo stores the JSON response given by the Alchemy API for all the records.
+
+- To start the mongoDB, open command prompt.
+- change the path where mongo is installed.
+- To start the MongoDB service - **net start MongoDB**.
+- To display the database, type **db**. It will return **test** as default database. To use our database type ** use dbname **.
+- To stop the MongoDB service - **net stop MongoDB**.
