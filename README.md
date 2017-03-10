@@ -21,6 +21,7 @@ Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.t
 4. Updating the processed records status after getting the response. 
 5. The raw response from Watson is also stored in MongoDB (lytepole) as raw JSON file.
 
+
 #### Code Flows as follows:
    * To insert or get data from DB code flows.. index.php -> Controller -> Action -> MySql.
    * To view the data code flows.. index.php -> Controller -> View.
@@ -103,6 +104,29 @@ Views | BluemixToneAnalyzer | header.tpl, footer.tpl(Common files), masterList.t
 #### Step 13:
    To view the Child data based on the master id, function **getChildDataFromMySQL($post_data)** will be called from controller.
    Function **getAllChildDataFromMySQL($post_data)** will get the reocrds based on the master id using MySql query. Function **showDetailListView($bluemix_list_vo)** will be called in view. 
+   
+ 
+#### Assumptions
+
+- DBMongo - Inserts the Alchemy JSON response into mongo. It is included in Global -> DBMongo.
+
+
+#### Errors
+
+If any erros found, the following may be the reasons.
+
+- Url might not be correct. It should be as below.
+
+**_Url:_**
+
+```
+http://159.203.239.91/bluemix2.0/index.php?module=toneAnalyzer&action=GetList
+
+```
+- The root path, base path and the database name should be correct in config.php.
+- The tone analyzer url, username and password should be a valid from IBM Bluemix. 
+- If the day limit is exceeded for the API key, then also the child results will not be inserted. 
+
    
 #### MySQL Database Details
 
